@@ -3,49 +3,83 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Rock Paper Scissors</title>
   </head>
   <body>
-    <div class="container">
+    <div class="overlay"></div>
+    <div class="container flex flex-col">
       <h1 class="title">Who is the thing?</h1>
       <div class="message-container flex">
         <h2 class="asteric">*</h2>
         <p class="message">
-          This game is based on John Carpenter's 1982 film 'The Thing,' One of
-          the characters below could be an alien in disguise. Choose the
-          character you suspect to be the Thing. If you correctly identify the
+          This game is based on John Carpenter's 1982 film
+          <a href="https://en.wikipedia.org/wiki/The_Thing_(1982_film)"
+            >The Thing</a
+          >. One of the characters below could be an alien in disguise. Choose a
+          character to check if it is the Thing. If you correctly identify the
           creature, you win a point, if you get it wrong, the thing gets a
           point. First to score 5 points wins.
         </p>
       </div>
-      <div class="result">
-        <div class="opponent player">
-          <img
-            src="./images/macready.webp"
-            alt="Macready from the thing (1982)"
-            class="opponent-image"
-          />
+
+      <div class="result flex">
+        <div class="opponent flex flex-col player">
+          <div class="opponent-image">
+            <img
+              src="./images/macready.webp"
+              alt="Macready from the thing (1982)"
+            />
+          </div>
+          <p class="opponent-name">(You)</p>
         </div>
-        <div class="opponent computer">
-          <img
-            src="./images/thething1.webp"
-            alt="Alien from the thing (1982)"
-            class="opponent-image"
-          />
-        </div>
-        <div class="score">
+        <div class="score flex">
           <h3 id="player">0</h3>
           <div class="divider"></div>
           <h3 id="computer">0</h3>
         </div>
+        <div class="opponent flex flex-col computer">
+          <div class="opponent-image">
+            <img
+              src="./images/thething1.webp"
+              alt="Alien from the thing (1982)"
+            />
+          </div>
+          <p class="opponent-name">(The thing)</p>
+        </div>
       </div>
       <div class="options">
-        <div class="characters">
-          <div class="character" id="childs"></div>
-          <div class="character" id="blair"></div>
-          <div class="character" id="bennings"></div>
-          <div class="character" id="palmer"></div>
-          <div class="character" id="nauls"></div>
+        <div class="characters flex">
+          <button class="character" id="childs">
+            <img
+              src="./images/childs.webp"
+              alt="Childs, character from the thing (1982)"
+            />
+          </button>
+          <button class="character" id="blair">
+            <img
+              src="./images/blair.webp"
+              alt="Blair, character from the thing (1982)"
+            />
+          </button>
+          <button class="character" id="bennings">
+            <img
+              src="./images/Bennings.webp"
+              alt="Bennings, character from the thing (1982)"
+            />
+          </button>
+          <button class="character" id="palmer">
+            <img
+              src="./images/palmer.webp"
+              alt="Palmer, character from the thing (1982)"
+            />
+          </button>
+          <button class="character" id="nauls">
+            <img
+              src="./images/nauls.webp"
+              alt="Nauls, character from the thing (1982)"
+            />
+          </button>
         </div>
       </div>
     </div>
