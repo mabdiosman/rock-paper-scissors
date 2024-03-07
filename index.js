@@ -54,11 +54,11 @@ function playRound(target) {
   }
   if (getComputerChoice() == target.id) {
     playerScoreCount += 1;
-    changeOpponentBackground(target.id);
+    changeOpponentBackground(1);
     displayCount(1);
   } else {
     computerScoreCount += 1;
-    changeOpponentBackground(target.id);
+    changeOpponentBackground(2);
     displayCount(2);
   }
   playerChoice.textContent = target.id;
@@ -81,7 +81,7 @@ function displayResult(result) {
 }
 
 function changeOpponentBackground(target) {
-  if (target == "player") {
+  if (target == 1) {
     playerImage.setAttribute("src", "./images/gifs/torchit.webp");
     computerImage.setAttribute("src", "./images/thething1.webp");
   } else {

@@ -1,1 +1,1 @@
-# Rock Paper Scissors with a twist
+# Rock Paper Scissors based on the movie The Thing (1982)
