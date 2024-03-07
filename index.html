@@ -11,7 +11,9 @@
     <div class="container flex flex-col">
       <h1 class="title">Who is the thing?</h1>
       <div class="message-container flex">
-        <h2 class="asteric">*</h2>
+        <div class="symbol">
+          <h2 class="asteric">*</h2>
+        </div>
         <p class="message">
           This game is based on John Carpenter's 1982 film
           <a href="https://en.wikipedia.org/wiki/The_Thing_(1982_film)"
@@ -21,6 +23,7 @@
           creature, you win a point, if you get it wrong, the thing gets a
           point. First to score 5 points wins.
         </p>
+        <button class="close-message flex">x</button>
       </div>
 
       <div class="result flex">
@@ -29,23 +32,25 @@
             <img
               src="./images/macready.webp"
               alt="Macready from the thing (1982)"
+              id="player-image"
             />
           </div>
-          <p class="opponent-name">(You)</p>
+          <p class="choice" id="player-choice">(...)</p>
         </div>
         <div class="score flex">
-          <h3 id="player">0</h3>
+          <h2 id="player">0</h2>
           <div class="divider"></div>
-          <h3 id="computer">0</h3>
+          <h2 id="computer">0</h2>
         </div>
         <div class="opponent flex flex-col computer">
           <div class="opponent-image">
             <img
               src="./images/thething1.webp"
               alt="Alien from the thing (1982)"
+              id="computer-image"
             />
           </div>
-          <p class="opponent-name">(The thing)</p>
+          <p class="choice" id="computer-choice">(...)</p>
         </div>
       </div>
       <div class="options">
@@ -53,35 +58,45 @@
           <button class="character" id="childs">
             <img
               src="./images/childs.webp"
+              class="character character-image"
               alt="Childs, character from the thing (1982)"
             />
           </button>
           <button class="character" id="blair">
             <img
               src="./images/blair.webp"
+              class="character character-image"
               alt="Blair, character from the thing (1982)"
             />
           </button>
           <button class="character" id="bennings">
             <img
               src="./images/Bennings.webp"
+              class="character character-image"
               alt="Bennings, character from the thing (1982)"
             />
           </button>
           <button class="character" id="palmer">
             <img
               src="./images/palmer.webp"
+              class="character character-image"
               alt="Palmer, character from the thing (1982)"
             />
           </button>
           <button class="character" id="nauls">
             <img
               src="./images/nauls.webp"
+              class="character character-image"
               alt="Nauls, character from the thing (1982)"
             />
           </button>
         </div>
       </div>
+    </div>
+    <div class="gameover flex flex-col">
+      <h3>Game Over</h3>
+      <p class="final-result"></p>
+      <button class="restart-btn" onclick="location.reload()">Try again</button>
     </div>
     <script src="./index.js"></script>
   </body>

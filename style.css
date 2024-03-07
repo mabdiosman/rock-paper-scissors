@@ -21,18 +21,19 @@
 }
 
 html {
+  min-height: 100vh;
   font-size: 62.5%;
 }
 
 body {
-  min-height: 100vh;
   display: flex;
   justify-content: center;
   font-family: "Space Mono", monospace;
   font-size: var(--md);
   color: var(--light-blue);
   background: url("./images/thething-location-1.webp") no-repeat;
-  background-size: 100%;
+  background-position: center;
+  background-size: cover;
 }
 
 img {
@@ -67,6 +68,7 @@ h3 {
 }
 
 .container {
+  position: relative;
   max-width: 64rem;
   align-items: center;
   gap: var(--xlg);
@@ -74,6 +76,7 @@ h3 {
 }
 
 .message-container {
+  position: relative;
   min-width: 100%;
   background-color: white;
   gap: var(--sm);
@@ -81,11 +84,34 @@ h3 {
   border-radius: var(--sm);
   color: var(--dark-blue);
 
-  .asteric {
-    line-height: 4rem;
-    color: #2075c3;
-    transform: translateY(-0.8rem);
+  .symbol {
+    width: var(--xlg);
+    height: var(--lg);
+    padding-top: var(--sm);
   }
+
+  .asteric {
+    color: #2075c3;
+    cursor: grabbing;
+    line-height: 0;
+    &:hover {
+      animation: rotateInfinite 1s infinite linear;
+    }
+  }
+}
+
+.close-message {
+  position: absolute;
+  bottom: var(--sm);
+  right: var(--sm);
+  width: var(--lg);
+  height: var(--lg);
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--sm);
+  color: #919191;
+  background: #d8d8d8;
+  border: 1px solid #b9b3b3;
 }
 
 .result {
@@ -100,9 +126,11 @@ h3 {
       border-radius: var(--sm);
       img {
         border-radius: var(--sm);
+        min-height: 100%;
+        object-fit: cover;
       }
     }
-    .opponent-name {
+    .choice {
       font-weight: 700;
     }
   }
@@ -121,7 +149,7 @@ h3 {
 }
 
 .opponent-image,
-.character img {
+.character {
   width: 10rem;
   height: 10rem;
 }
@@ -138,18 +166,21 @@ h3 {
   column-gap: var(--lg);
   .character {
     background: var(--gradient);
-    padding: 0.4rem;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 30rem;
     transition: 0.15s;
-    img {
-      border-radius: 30rem;
-    }
 
     &:hover {
-      opacity: 0.5;
+      box-shadow: 4px 4px 10px rgba(0, 0, 0, 25%),
+        -4px -4px 10px rgba(0, 0, 0, 25%);
+      transform: scale(1.05);
+    }
+    img {
+      width: 9.4rem;
+      height: 9.4rem;
+      border-radius: 30rem;
     }
   }
 }
@@ -158,8 +189,54 @@ h3 {
   position: absolute;
   top: 0;
   left: 0;
-  min-width: 100vw;
-  min-height: 100vh;
+  width: 100%;
+  height: 100%;
   background-color: rgba(20, 49, 77, 0.8);
   z-index: -1;
+}
+
+@keyframes rotateInfinite {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.green {
+  background: rgb(17, 116, 39) !important;
+}
+
+.red {
+  background: rgb(116, 17, 17) !important;
+}
+
+.gameover {
+  position: absolute;
+  top: 30%;
+  background: var(--dark-blue);
+  color: white;
+  padding: 4.8rem;
+  gap: 2.4rem;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(172, 172, 172, 0.25);
+  border-radius: var(--sm);
+  button {
+    font: inherit;
+    font-weight: bold;
+    padding: 0.8rem 2.4rem;
+    background: var(--blue);
+    color: white;
+    border-radius: var(--sm);
+    &:hover,
+    &:focus {
+      opacity: 0.8;
+    }
+  }
+  display: none;
+}
+
+.visible {
+  display: flex;
 }
